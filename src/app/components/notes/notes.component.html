@@ -1,0 +1,70 @@
+<div class="container"> 
+  <div class="row mt-3">
+    <div class="col-6">      
+        <div class="text-center" >
+
+          <!--Add Button-->
+          <button mat-raised-button color="primary" class="text-center addbtn "  *ngIf="!AddNote" (click)="toggle()">
+              <mat-icon >add</mat-icon>
+          Add Note</button>
+          
+          <!--Form to accept Note-->
+          <form [formGroup] = "notesForm" *ngIf="AddNote && !hideForm">
+            <mat-card class="w container text-center">
+            <mat-card-title class="text-center ">Note</mat-card-title>
+           
+              <mat-form-field appearance="outline">
+                <mat-label>Title</mat-label>
+                <input matInput id="title" name="title" formControlName="title" #title>
+              </mat-form-field>
+              <br>
+              <mat-form-field  apperance="outline" class="textarea">
+                <mat-label>Write a Note here</mat-label>
+                <textarea matInput id="note" name="note" formControlName="note" #note></textarea>
+              </mat-form-field>
+              <br> <br>  <br>
+              <button mat-raised-button color="primary" (click)="onAddNote()">Save</button>&nbsp;&nbsp;
+              <button mat-raised-button color="primary" (click)="resetForm()">Cancel</button>
+            </mat-card>
+          </form>
+       </div>
+      </div>
+
+      <div class="col-6   text-center"  *ngIf="notes"  >
+      
+        <!--Searchbar-->
+        <div>
+            <form class="example-form">
+              <mat-form-field class="example-full-width">
+            <input  matInput [(ngModel)]="searchInput" name="searchInput" (keyup)="searchNote($event.target.value)" placeholder="Search a note here.....">
+              </mat-form-field>
+            </form>
+          </div>
+       <div>
+         
+        <div  *ngFor="let n of filteredNotes">
+          
+          <!--Card to display Note-->
+          <mat-card class="mt-4" >
+            <mat-card-title class="text-center">{{n.title}}
+
+            <mat-card-actions class="float-right">
+              <a [routerLink]="['edit',n.id]" class="routerLink" >
+              <mat-icon>edit</mat-icon>
+             </a>
+            <button mat-icon-button  (click)="delete(n)" color="primary">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </mat-card-actions>
+
+         </mat-card-title>
+         <mat-card-content class="card-content text-center">
+          <div>{{n.note}} </div> 
+         </mat-card-content>
+         </mat-card>
+          <br >
+          
+        </div>
+      </div>
+    </div>
+</div>

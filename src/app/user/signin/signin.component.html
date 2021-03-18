@@ -1,0 +1,41 @@
+<!--Sign in Form-->
+<div class="container">
+    <mat-card>
+        <mat-card-title class="text-center bg-primary text-white pt-1 pb-1">Sign In Please</mat-card-title>
+        <mat-card-content>
+            <form (ngSubmit)="onSubmit(f)" #f="ngForm" >
+
+                <!--Email-->
+                <div class="row">
+                    <div class="col-12 text-center mt-3">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Enter your Email</mat-label>
+                            <input matInput placeholder="pat@example.com" name="email" ngModel id="email">
+                            <mat-icon matSuffix>mail</mat-icon>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <!--Password-->
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Enter your Password</mat-label>
+                            <input matInput name="password" ngModel id="password" required [type]="hide ? 'password' : 'text'">
+                                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                </button>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="text-center mt-3">
+                    <button mat-raised-button color="primary" type="submit">SIGN IN</button>&nbsp;&nbsp;
+                    <button mat-raised-button color="primary" type="reset">RESET</button>
+                </div>
+            </form>
+    </mat-card-content>
+    </mat-card>
+
+
+</div>

@@ -1,0 +1,28 @@
+<!Form to edit note-->
+<div class="container mt-3">
+ 
+  <div >
+    <form [formGroup] = "editForm" >
+      <mat-card class="card container text-center">
+        <mat-card-title class="text-center">Edit Note</mat-card-title>
+        <br >
+          <mat-form-field appearance="outline">
+            <mat-label>Title</mat-label>
+            <input matInput  name="title" formControlName="title" #title>
+          </mat-form-field>
+
+          <br>
+          
+          <mat-form-field  apperance="outline" class="textarea">
+            <mat-label>Write a Note here</mat-label>
+            <textarea matInput name="note" formControlName="note" #note></textarea>
+          </mat-form-field>
+          <br> <br>  <br>
+          <button mat-raised-button color="primary" (click)="onUpdate()">Save</button>&nbsp;&nbsp;
+          <button mat-raised-button color="primary" (click)="onCancel()">Cancel</button>
+      </mat-card>
+    </form>
+    
+  </div>
+ 
+</div>
