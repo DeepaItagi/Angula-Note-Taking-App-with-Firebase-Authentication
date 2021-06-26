@@ -13,7 +13,6 @@ import {
   redirectLoggedInTo,
 } from '@angular/fire/auth-guard';
 
-
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['signin']);
 const redirectLoggedInToNotes = () => redirectLoggedInTo(['']);
 
@@ -35,15 +34,13 @@ const routes: Routes = [
     component:SignupComponent
   },
  {
-    path:'edit/:id',
+    path:'edit/:NoteId',
     component: EditNoteComponent,
   },
   {
     path: '**',
     component: PagenotfoundComponent,
   },
-  
-
 ];
 
 @NgModule({

@@ -15,6 +15,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
+import {MatTableModule} from '@angular/material/table';
 
 //firebase
 import{AngularFireAuthModule} from "@angular/fire/auth";
@@ -27,6 +28,7 @@ import { environment } from 'src/environments/environment';
 import { HeaderComponent } from './components/header/header.component';
 import {TextFieldModule} from '@angular/cdk/text-field';
 import { EditNoteComponent } from './components/notes/edit-note/edit-note.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -52,7 +54,9 @@ import { EditNoteComponent } from './components/notes/edit-note/edit-note.compon
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebase),
     ToastrModule.forRoot(),
-    TextFieldModule
+    TextFieldModule,
+    MatTableModule,
+    HttpClientModule
     
 
   ],

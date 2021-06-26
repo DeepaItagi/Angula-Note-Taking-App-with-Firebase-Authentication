@@ -12,7 +12,7 @@ export class NoteService{
 
 private _notes = new BehaviorSubject<Note[]>([ ])
 
-get notes() {
+get notes(){
   return this._notes.asObservable();
 }
 

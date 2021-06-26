@@ -1,5 +1,5 @@
 import { Component,  OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import{Note } from './notes.model';
 import { Router } from '@angular/router';
 import {NoteService} from '../notes/note.service';
@@ -13,8 +13,6 @@ import { Subscription } from 'rxjs';
 export class NotesComponent implements OnInit{
 
   notesForm: FormGroup;
-  hideForm=false;
-  AddNote= false;
   notes:Note[]=[];
   private noteSub:Subscription;
   
@@ -24,17 +22,13 @@ export class NotesComponent implements OnInit{
 
   ngOnInit() {
     this.notesForm = this.formbuilder.group({
-      title: [""],
-      note: [""],
+      title: ["",Validators.required],
+      note: ["",Validators.required],
     });
     this.noteSub=this.noteService.notes.subscribe(notes=>{
     this.notes=notes;
     this.filteredNotes=notes;
     })
-  }
-  
-  toggle() {
-    this.AddNote = !this.AddNote;
   }
 
   _searchInput='';
@@ -56,14 +50,16 @@ export class NotesComponent implements OnInit{
   }
 
   onAddNote()
-  { 
-     this.noteService.addNote(this.notesForm.value.title,this.notesForm.value.note).subscribe(()=>
+  { if(this.notesForm.valid)
+    {
+      this.noteService.addNote(this.notesForm.value.title,this.notesForm.value.note).subscribe(()=>
     {
       console.log(this.notes);
-      this.hideForm = false;
-      this.AddNote = false;
+      //localStorage.setItem(this.notes);
       this.notesForm.reset();
      });
+    }
+     
     }
 
   delete(notes:Note)

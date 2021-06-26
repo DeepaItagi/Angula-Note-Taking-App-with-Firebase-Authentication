@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Note } from '../notes.model';
 import { ActivatedRoute,Router } from '@angular/router';
 import { FormControl, FormGroup } from '@angular/forms';
 import {NoteService } from './../note.service';
 import { Subscription } from 'rxjs';
+import { Note } from '../notes.model';
 
 @Component({
   selector: 'app-edit-note',
@@ -27,7 +27,7 @@ export class EditNoteComponent implements OnInit {
 
     this.route.paramMap.subscribe(paramMap => {
       this.noteSub=this.noteService
-      .getNote(paramMap.get('id'))
+      .getNote(paramMap.get('NoteId'))
       .subscribe(note =>
         {
           this.notes=note;

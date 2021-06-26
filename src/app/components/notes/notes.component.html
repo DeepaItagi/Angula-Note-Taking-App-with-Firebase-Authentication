@@ -1,26 +1,21 @@
-<div class="container"> 
-  <div class="row mt-3">
+<div> 
+  <div class="row mt-5">
     <div class="col-6">      
         <div class="text-center" >
-
-          <!--Add Button-->
-          <button mat-raised-button color="primary" class="text-center addbtn "  *ngIf="!AddNote" (click)="toggle()">
-              <mat-icon >add</mat-icon>
-          Add Note</button>
           
           <!--Form to accept Note-->
-          <form [formGroup] = "notesForm" *ngIf="AddNote && !hideForm">
-            <mat-card class="w container text-center">
-            <mat-card-title class="text-center ">Note</mat-card-title>
+          <form [formGroup] = "notesForm">
+            <mat-card class="card text-center">
+            <mat-card-title>Add Note</mat-card-title>
            
-              <mat-form-field appearance="outline">
+              <mat-form-field  >
                 <mat-label>Title</mat-label>
-                <input matInput id="title" name="title" formControlName="title" #title>
+                <input matInput name="title" formControlName="title" required>
               </mat-form-field>
               <br>
-              <mat-form-field  apperance="outline" class="textarea">
+              <mat-form-field   class="textarea">
                 <mat-label>Write a Note here</mat-label>
-                <textarea matInput id="note" name="note" formControlName="note" #note></textarea>
+                <textarea matInput name="note" formControlName="note" required></textarea>
               </mat-form-field>
               <br> <br>  <br>
               <button mat-raised-button color="primary" (click)="onAddNote()">Save</button>&nbsp;&nbsp;
@@ -35,31 +30,32 @@
         <!--Searchbar-->
         <div>
             <form class="example-form">
-              <mat-form-field class="example-full-width">
+              <mat-form-field  class="example-full-width" style="background-color:gold; width: 700px;">
             <input  matInput [(ngModel)]="searchInput" name="searchInput" (keyup)="searchNote($event.target.value)" placeholder="Search a note here.....">
               </mat-form-field>
             </form>
-          </div>
-       <div>
+          
          
         <div  *ngFor="let n of filteredNotes">
           
           <!--Card to display Note-->
-          <mat-card class="mt-4" >
-            <mat-card-title class="text-center">{{n.title}}
+          <mat-card class="mt-2 card2">
+            <div> 
+              <span><strong><h2 class="text-center d-inline-block">{{n.title}}</h2></strong></span>
 
-            <mat-card-actions class="float-right">
+            <span class="float-right d-inline-block">
               <a [routerLink]="['edit',n.id]" class="routerLink" >
               <mat-icon>edit</mat-icon>
              </a>
             <button mat-icon-button  (click)="delete(n)" color="primary">
               <mat-icon>delete</mat-icon>
             </button>
-          </mat-card-actions>
+          </span>
+        </div>
 
-         </mat-card-title>
+         
          <mat-card-content class="card-content text-center">
-          <div>{{n.note}} </div> 
+          <div class="note">{{n.note}} </div> 
          </mat-card-content>
          </mat-card>
           <br >
