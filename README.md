@@ -1,27 +1,7 @@
-# FirebaseLogin
+![Snapshot3](https://user-images.githubusercontent.com/76899120/123521710-f7e09200-d6d5-11eb-80da-31c13ea779a7.PNG)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.3.
+![Snapshot4](https://user-images.githubusercontent.com/76899120/123521713-00d16380-d6d6-11eb-9ffc-00a21530d36a.PNG)
 
-## Development server
+![Snapshot](https://user-images.githubusercontent.com/76899120/123521719-062eae00-d6d6-11eb-8321-9b770bdc4fd2.PNG)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+![Snapshot](https://user-images.githubusercontent.com/76899120/123521725-121a7000-d6d6-11eb-8aad-dff82ba04985.PNG)
